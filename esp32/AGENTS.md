@@ -350,16 +350,17 @@ says, run `python3 tools/muse/chat.py --status`. To ask their Muse something,
 run `python3 tools/muse/chat.py "question"`.
 
 The default avatar is in `avatar/`: its renderer (`muse_pixel.c`) and
-its animation (`jollybot.gif`, and `happy_anim.c/.h` made from it by
-`tools/gen_happy_anim.py`).
+its animation (`happy_anim.c/.h`, made by `tools/gen_happy_anim.py` from the
+`happy.gif` that `tools/muse/make_gifs.py` renders). In this fork the default
+avatar is Miko, Mayar's mascot, and `avatar/muse_pixel.c` is MIT licensed.
 
 Third-party code keeps its upstream license and header: `minimp3.h` (CC0) and
 `main/pixel_font.c` (BSD-2-Clause, Adafruit). Don't restyle them or replace
 their headers with the Apache one; `components/minimp3/README.md` says how to
 update minimp3.
 
-The Apache License doesn't cover the Jollybot avatar in `avatar/`. Its files
-carry only a Meta copyright line; don't add the Apache header to them.
+Upstream's Jollybot avatar isn't in this fork. `avatar/muse_pixel.c` is this
+fork's own renderer (MIT); don't add the Apache header to it.
 
 ## First boot and pairing
 

@@ -1,8 +1,8 @@
-# muse-gadget-xiaozhi
+# miko-gadget-xiaozhi
 
 Meta's [Muse Gadget](https://github.com/facebookincubator/muse-gadget-sdk)
-firmware, with its pixel character, push-to-talk and touch settings, rewired to
-talk to the [xiaozhi.me](https://xiaozhi.me) voice AI
+firmware, with push-to-talk and touch settings, starring **Miko** (Mayar's
+mascot) as the pixel character, and rewired to talk to the [xiaozhi.me](https://xiaozhi.me) voice AI
 ([78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32)) instead of Muse.
 
 Hold the button, ask something, let go. xiaozhi hears it, thinks, and answers out
@@ -31,8 +31,9 @@ the firmware's own UI code in the desktop simulator, with sample captions
 Only the backend. Muse's UI already sends every voice turn through one small
 interface (`muse_hatch_*` in `components/muse/muse_chat.h`). This fork adds a
 third implementation of it,
-[`muse_chat_xiaozhi.c`](esp32/components/muse/muse_chat_xiaozhi.c), and leaves
-the avatar, screens, menus, captions and button handling as they were.
+[`muse_chat_xiaozhi.c`](esp32/components/muse/muse_chat_xiaozhi.c), swaps the
+avatar for Miko, and leaves the screens, menus, captions and button handling as
+they were.
 
 | | Muse (upstream) | This fork |
 |---|---|---|
@@ -87,13 +88,12 @@ git clone -b v6.0.2 --recursive https://github.com/espressif/esp-idf.git ~/esp/e
 ~/esp/esp-idf/install.sh esp32s3
 . ~/esp/esp-idf/export.sh
 
-git clone https://github.com/moerdowo/muse-gadget-xiaozhi
-cd muse-gadget-xiaozhi/esp32
+git clone https://github.com/moerdowo/miko-gadget-xiaozhi
+cd miko-gadget-xiaozhi/esp32
 tools/muse/board.sh build s318
 tools/muse/board.sh flash s318
 ```
 
-The first build downloads Meta's Jollybot avatar (see [Licence](#licence)).
 To flash a different board, swap `s318` for its name in the table above.
 
 ## First run
@@ -158,11 +158,11 @@ tokens don't apply here.
   Muse Gadget SDK. Those files keep Meta's headers.
 - **Third-party** files keep their own licences: minimp3 is CC0, the pixel
   font is BSD-2-Clause.
-- **The Jollybot avatar is not in this repository.** It belongs to Meta and
-  isn't licensed for redistribution, so
-  [`fetch_avatar.cmake`](esp32/cmake/fetch_avatar.cmake) downloads it from
-  Meta's repository at build time, from a pinned commit with SHA-256 checks.
-  You can also replace it with your own character (`esp32/tools/muse/AVATAR_RECIPE.md`).
+- **Miko** is drawn by [`esp32/avatar/muse_pixel.c`](esp32/avatar/muse_pixel.c),
+  a renderer written for this repository (MIT). The Miko character itself is
+  Mayar's mascot; the MIT licence covers the code, not the character or the
+  Mayar brand. Meta's Jollybot avatar is not used or included. To use your own
+  character instead, see `esp32/tools/muse/AVATAR_RECIPE.md`.
 
 [NOTICE](NOTICE) has the full breakdown, including every upstream file this
 fork changed.

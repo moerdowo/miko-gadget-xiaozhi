@@ -1,9 +1,11 @@
-muse-gadget-xiaozhi
+miko-gadget-xiaozhi
 ===================
 
 A fork of Meta's Muse Gadget SDK (https://github.com/facebookincubator/muse-gadget-sdk,
 commit 1b56662588c0ea00bdee24b9bcd1835e12848e9a) whose voice backend talks to the
-xiaozhi.me service (https://github.com/78/xiaozhi-esp32) instead of Muse.
+xiaozhi.me service (https://github.com/78/xiaozhi-esp32) instead of Muse, and whose
+on-screen character is Miko, Mayar's mascot. It continues
+https://github.com/moerdowo/muse-gadget-xiaozhi.
 
 Not affiliated with, or endorsed by, Meta Platforms, Inc. or the xiaozhi project.
 "Muse" names the upstream SDK this is derived from.
@@ -14,7 +16,7 @@ Licensing
 * New code and docs written for this fork are MIT licensed (LICENSE):
     README.md                                   rewritten for this fork
     esp32/components/muse/muse_chat_xiaozhi.c   xiaozhi backend
-    esp32/cmake/fetch_avatar.cmake              fetches the avatar at build time
+    esp32/avatar/muse_pixel.c                   Miko, the pixel-art avatar renderer
     docs/screenshots/*.txt                      simulator scenarios
 
 * Code from the Muse Gadget SDK, Copyright (c) Meta Platforms, Inc. and
@@ -22,6 +24,7 @@ Licensing
   with its original headers. These files were changed in this fork:
     esp32/AGENTS.md, esp32/README.md            fork notes at the top
     esp32/CMakeLists.txt
+    esp32/tools/gen_happy_anim.py
     esp32/components/muse/CMakeLists.txt
     esp32/components/muse/Kconfig
     esp32/components/muse/idf_component.yml
@@ -50,7 +53,8 @@ Licensing
   Components fetched at build time (ESP-IDF component manager, LVGL, SDL for
   the simulator) are under their own licenses.
 
-* The Jollybot avatar is Meta's, is not covered by the Apache License, and is
-  NOT included in this repository. esp32/cmake/fetch_avatar.cmake downloads it
-  from Meta's repository at build time (pinned commit, SHA-256 checked). The
-  screenshots in docs/screenshots show it as rendered by the firmware's UI.
+* The avatar is Miko, Mayar's mascot. esp32/avatar/muse_pixel.c is a renderer
+  written for this repository (MIT); esp32/avatar/happy_anim.c/.h are generated
+  from it by Meta's esp32/tools/gen_happy_anim.py. The Miko character and the
+  Mayar name belong to Mayar: the MIT license covers the code, not the
+  character. Meta's Jollybot avatar is not used and is not included.

@@ -13,7 +13,6 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 3.16)
-include("${CMAKE_CURRENT_LIST_DIR}/cmake/fetch_avatar.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/project.cmake")
 project(muse-gadget)
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/validate_config.cmake")

@@ -23,7 +23,6 @@ if(NOT CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
     message(FATAL_ERROR "The UI simulator requires GCC or Clang")
 endif()
 
-include("${CMAKE_CURRENT_LIST_DIR}/../cmake/fetch_avatar.cmake")
 include(FetchContent)
 find_package(Threads REQUIRED)
 

@@ -21,8 +21,6 @@ build/
 # Interactive simulator screenshot.
 muse-simulator.ppm
 
-# Meta's Jollybot avatar, fetched at build time (esp32/cmake/fetch_avatar.cmake)
-esp32/avatar/
 # Simulator builds and screenshots
 esp32/simulator/build*/
 docs/screenshots/*.ppm
